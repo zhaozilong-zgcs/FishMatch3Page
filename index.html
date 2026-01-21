@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infinity Match</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      /* Background is now handled by the App component for dynamic themes */
+      background-color: #0f172a;
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    /* Bubble Animation */
+
+    .bubble {
+      position: absolute;
+      bottom: -20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: rise infinite ease-in;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .candy-pop {
+      animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.4);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+
+    .candy-drop {
+      animation: drop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes drop {
+      0% {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .candy-shake {
+      animation: shake 0.4s ease-in-out;
+      z-index: 20;
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0) rotate(0);
+      }
+
+      20% {
+        transform: translateX(-4px) rotate(-4deg);
+      }
+
+      40% {
+        transform: translateX(4px) rotate(4deg);
+      }
+
+      60% {
+        transform: translateX(-4px) rotate(-4deg);
+      }
+
+      80% {
+        transform: translateX(4px) rotate(4deg);
+      }
+    }
+
+    .candy-shake-vertical {
+      animation: shake-vertical 0.4s ease-in-out;
+      z-index: 20;
+    }
+
+    @keyframes shake-vertical {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      20% {
+        transform: translateY(-4px);
+      }
+
+      40% {
+        transform: translateY(4px);
+      }
+
+      60% {
+        transform: translateY(-4px);
+      }
+
+      80% {
+        transform: translateY(4px);
+      }
+    }
+  </style>
+  <script type="module" crossorigin src="./assets/index-BfJeSzAf.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
