@@ -21,29 +21,45 @@
 
     .bubble {
       position: absolute;
-      bottom: -20px;
-      background-color: rgba(255, 255, 255, 0.1);
+      bottom: -100px;
       border-radius: 50%;
-      animation: rise infinite ease-in;
       pointer-events: none;
       z-index: 0;
+
+      /* Realistic Bubble Aesthetic */
+      background: radial-gradient(120% 120% at 30% 30%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+      box-shadow:
+        inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+        inset 2px 2px 6px rgba(255, 255, 255, 0.2),
+        0 0 10px rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+
+      animation: bubble-rise linear infinite;
       will-change: transform, opacity;
-      transform: translateZ(0);
-      /* Hardware acceleration */
     }
 
-    @keyframes rise {
+    /* Swaying rise animation */
+
+    @keyframes bubble-rise {
       0% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0) translateX(0) scale(0.8);
         opacity: 0;
       }
 
-      20% {
-        opacity: 0.6;
+      10% {
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: translateY(-60vh) translateX(var(--sway-x)) scale(1);
+      }
+
+      90% {
+        opacity: 0.5;
       }
 
       100% {
-        transform: translateY(-120vh) scale(1.5);
+        transform: translateY(-120vh) translateX(calc(var(--sway-x) * 1.5)) scale(1.2);
         opacity: 0;
       }
     }
@@ -147,7 +163,7 @@
       }
     }
   </style>
-  <script type="module" crossorigin src="./assets/index-CEGAj6yu.js"></script>
+  <script type="module" crossorigin src="./assets/index-D88v4jw6.js"></script>
 </head>
 
 <body>
